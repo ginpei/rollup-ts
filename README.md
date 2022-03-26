@@ -1,3 +1,16 @@
+# Rollup.js-TypeScript import problem
+
+```
+./
++ client/src/index.ts
++ models/Account.ts
++ server/src/index.ts
+```
+
+Both of client's server's `index.ts` import a resource from `models/Account.ts`. The server's one works.
+
+However, the client's bundler throws the following error. It looks rollup.js does not recognize the model code as TypeScript.
+
 ```console
 $ npm run dev:client
 
