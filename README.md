@@ -12,7 +12,27 @@
 
 Both of client's and server's `index.ts` import a resource from `models/Account.ts`. The server's one works.
 
-However, the client's bundler throws the following error. It looks rollup.js does not recognize the model code as TypeScript.
+However, the client's bundler throws an error printed below later. It looks rollup.js does not recognize the model code as TypeScript.
+
+```ts
+// client/src/index.ts
+
+import { getName } from "../../models/Account";
+
+console.log(getName());
+```
+
+```ts
+// models/Account.ts
+
+export interface Account {
+  name: string;
+}
+
+export function getName(): string {
+  return 'name';
+}
+```
 
 ```console
 $ npm run dev:client
